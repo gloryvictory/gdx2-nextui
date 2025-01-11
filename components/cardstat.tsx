@@ -1,75 +1,57 @@
 'use client'
-import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/card";
-// import {Image} from "@nextui-org/image";
+import { gdx2_urls } from "@/config/urls";
+import StatCard from "./statcard";
 
 export default function CardStat() {
   const list = [
     {
       title: "Отчетов",
-      img: "/images/fruit-1.jpeg",
-      price: "5444",
+      url: gdx2_urls.gdx2_url_report_count,
     },
     {
       title: "Авторов",
-      img: "/images/fruit-2.jpeg",
-      price: "4000",
+      url: gdx2_urls.gdx2_url_report_author_count,
     },
     {
       title: "Листов карт",
-      img: "/images/fruit-3.jpeg",
-      price: "224",
+      url: gdx2_urls.gdx2_url_report_list_count,
     },
     {
       title: "Субъектов РФ",
-      img: "/images/fruit-4.jpeg",
-      price: "113",
+      url: gdx2_urls.gdx2_url_report_subrf_count,
     },
     {
       title: "Организаций",
-      img: "/images/fruit-5.jpeg",
-      price: "1200",
+      url: gdx2_urls.gdx2_url_report_org_count,
     },
     {
       title: "Площадей",
-      img: "/images/fruit-6.jpeg",
-      price: "1300",
+      url: gdx2_urls.gdx2_url_report_area_count,
     },
     {
       title: "Месторождений",
-      img: "/images/fruit-7.jpeg",
-      price: "700",
+      url: gdx2_urls.gdx2_url_report_field_count,
     },
     {
       title: "Лицензий",
-      img: "/images/fruit-8.jpeg",
-      price: "607",
+      url: gdx2_urls.gdx2_url_report_lu_count,
     },
     {
       title: "ПИ",
-      img: "/images/fruit-7.jpeg",
-      price: "51",
+      url: gdx2_urls.gdx2_url_report_pi_count,
     },
     {
       title: "Вид работ",
-      img: "/images/fruit-8.jpeg",
-      price: "34",
+      url: gdx2_urls.gdx2_url_report_vid_rab_count,
     },
   ];
   
 
   return (
     <div className="gap-2 grid grid-cols-2 sm:grid-cols-4">
+
       {list.map((item, index) => (
-        /* eslint-disable no-console */
-        <Card key={index} isPressable shadow="sm" onPress={() => console.log("item pressed")} className="hover:bg-slate-200 dark:hover:bg-slate-600">
-          {/* <CardHeader className="flex gap-3">  </CardHeader> */}
-          <CardBody className="overflow-visible p-3">
-          <b>{item.title}</b>
-          </CardBody>
-          <CardFooter className="text-small justify-between">
-            <p className="text-default-500">{item.price}</p>
-          </CardFooter>
-        </Card>
+        <StatCard key={index} title={item.title} url={item.url}/>  
       ))}
 
     </div>
