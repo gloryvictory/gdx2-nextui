@@ -12,9 +12,19 @@ export function useCounts(url : string) {
     try {
       setError('')
       setLoading(true)
-      const response = await axios.get<ICount>(url)
+      
+      const count1 = window.localStorage.getItem(url); // Retrieve auth token from localStorage
+
+      if (count1) {
+        setCount(JSON.parse(count1)) 
+      }else{
+        const response = await axios.get<ICount>(url)
+        window.localStorage.setItem(url, JSON.stringify(response.data));
+        setCount(response.data)
+      }
+
+
       // const counts:string = response.data['count']
-      setCount(response.data)
       setLoading(false)
     } catch (e: unknown) {
       const error = e as AxiosError

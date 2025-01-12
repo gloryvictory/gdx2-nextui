@@ -1,5 +1,5 @@
 'use client'
-import { useCounts } from "@/app/hooks/hook_counts";
+import { useCounts } from "@/app/hooks/useCounts";
 import { gdx2_urls } from "@/config/urls";
 import {Card, CardBody, CardFooter} from "@nextui-org/card"; // CardHeader,
 import {Spinner} from "@nextui-org/spinner";

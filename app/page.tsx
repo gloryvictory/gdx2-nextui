@@ -1,15 +1,19 @@
+// 'use client'
 // import { Link } from "@nextui-org/link";
 // import { Snippet } from "@nextui-org/snippet";
 // import { Code } from "@nextui-org/code";
 // import { button as buttonStyles } from "@nextui-org/theme";
 
 import CardStat from "@/components/cardstat";
-
-// import { siteConfig } from "@/config/site";
-// import { title, subtitle } from "@/components/primitives";
+// import { useEffect } from "react";
 // import { GithubIcon } from "@/components/icons";
 
 export default function Home() {
+
+  // useEffect(() => {
+  //   window.localStorage.clear();
+  // }, [])
+
   return (
     // className="flex flex-col items-center justify-center gap-4 "
     <section className=""> 

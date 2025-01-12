@@ -10,7 +10,7 @@ export const siteConfig = {
     },
     {
       label: "Поиск",
-      href: "/docs",
+      href: "/search",
     },
     {
       label: "Карта",
