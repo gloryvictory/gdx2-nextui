@@ -15,4 +15,9 @@ export const gdx2_urls = {
   gdx2_url_report_lu_count        : `${gdx2_backend_url}/report/lu/count`,
   gdx2_url_report_pi_count        : `${gdx2_backend_url}/report/pi/count`,
   gdx2_url_report_vid_rab_count   : `${gdx2_backend_url}/report/vid_rab/count`,
+  
+  gdx2_url_report_search          : `${gdx2_backend_url}/report/query?q=`,
+  
+
+
 }

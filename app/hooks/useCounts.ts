@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import axios, {AxiosError} from 'axios'
-import { ICount } from '@/types/count'
+import { ICount } from '@/types/models'
 
 export function useCounts(url : string) {
   const [stat_count, setCount] = useState<ICount>()
