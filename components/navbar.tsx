@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -18,12 +20,9 @@ import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
-  // TwitterIcon,
-  // GithubIcon,
-  // DiscordIcon,
-  // HeartFilledIcon,
   SearchIcon,
   Logo,
+  ClearIcon,
 } from "@/components/icons";
 
 export const Navbar = () => {
@@ -63,21 +62,34 @@ export const Navbar = () => {
       >
         {/* <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem> */}
 
+        <NavbarItem className="hidden sm:flex ">
+        {/* className='sm:hidden basis-1 pl-4 justify="end' isIconOnly aria-label="Take a photo" color="warning" variant="faded" */}
+          <Button 
+            className='size="sm" isIconOnly variant="faded"  '  
+            onPress={() => {window.localStorage.clear(); window.location.reload();} }
+          >
+            
+            <ClearIcon  />
+          </Button>
+        </NavbarItem>
+
         <NavbarItem className="hidden sm:flex gap-2">
           <ThemeSwitch />
         </NavbarItem>
 
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+      {/* <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
         <ThemeSwitch />
-        
       </NavbarContent>
+      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+        <Button className='sm:hidden basis-1 pl-4 justify="end' asd/>
+      </NavbarContent> */}
 
       <NavbarMenu>
         {/* {searchInput} */}
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
+          {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <Link
                 color={

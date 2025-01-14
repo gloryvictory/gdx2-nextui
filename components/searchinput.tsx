@@ -22,7 +22,17 @@ export default function SearchInput() {
   const [isLoading, setLoading] = useState<boolean>(false)
   const [initialList, setInitialList] = useState<IReport[]>()
 
+  const [open, setOpen] = useState(false);
+  const [curentItem, setCurentItem] = useState<IReport>();
+  
+  
+  const showDrawer = () => {
+    setOpen(true);
+  };
 
+  const onClose = () => {
+    setOpen(false);
+  };
 
   const onChange = ( e: React.ChangeEvent<HTMLInputElement>) => {
     
@@ -49,6 +59,10 @@ export default function SearchInput() {
     getData()
   }
 
+  const onEnterPress = (e : any) => {
+    if (e.key === 'Enter' || e.keyCode === 13) { onPress()}
+  }
+
 
   
 
@@ -64,8 +78,8 @@ export default function SearchInput() {
       }}
       endContent={
         <Button 
-        className="hidden lg:inline-block"
-        onPress={onPress}
+          className="hidden lg:inline-block"
+          onPress={onPress}
         >Найти</Button>
         // <Kbd className="hidden lg:inline-block" keys={["command"]}>
         //   K
@@ -79,10 +93,11 @@ export default function SearchInput() {
       type="search"
       onChange={onChange}
       value={inputValue}
+      onKeyDown={onEnterPress}
       />
 
-      <div className='bg-slate-100 rounded-md p-2 text-center text-sm mt-1'>
-        Вы искали: <strong>{inputValue.length > 3 ? inputValue: ""}</strong> Найдено: <strong>{`${initialList?.length}` }</strong> отчетов
+      <div className='bg-slate-100 rounded-md p-2 text-center text-sm mt-1 dark:bg-slate-800 dark:hover:bg-slate-500 dark:text-white' >
+        Вы искали: <strong>{inputValue.length > 3 ? inputValue : ""}</strong> Найдено: <strong>{initialList?.length ? `${initialList?.length}`: "" }</strong> отчетов
       </div>
       { isLoading && <Spinner className="flex justify-center align-middle " /> }
       { msgError && `Error: ${msgError}` }
@@ -90,7 +105,7 @@ export default function SearchInput() {
       <div className="gap-3 grid grid-cols-3 sm:grid-cols-3 mt-1">
 
       {initialList?.length && initialList?.map((item: IReport ) => (
-              <CardReport key={item.id} item={item} onClick={()=>{}}/>
+              <CardReport key={item.id} item={item} onClick={()=>{setCurentItem(item); showDrawer(); console.log(item); } }  />
 
         ))
         // setCurentItem(item); showDrawer()
